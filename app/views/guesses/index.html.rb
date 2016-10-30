@@ -16,33 +16,20 @@
 
 <p>Now it’s your turn. Enter a number sequence in the boxes below, and we’ll tell you whether it satisfies the rule or not. You can test as many sequences as you want.</p>
 
-<ul>
-  <li>
-    3, 4, 4
 
-      No.
-  </li>
+<% @list.each do |guess| %>
   <li>
-    3, 4, 5
-
+    <%= guess.first_num %>,
+    <%= guess.second_num %>,
+    <%= guess.third_num %>
+    <% if guess.first_num < guess.second_num && guess.second_num < guess.third_num %>
       Yes!
-  </li>
-  <li>
-    4, 4, 2
-
+      <% else %>
       No.
+    <% end %>
   </li>
-  <li>
-    3, 3, 3
+<% end %>
 
-      No.
-  </li>
-  <li>
-    2, 3, 5
-
-      Yes!
-  </li>
-</ul>
 
 <form action="">
   <p>
@@ -65,7 +52,7 @@
 
 <hr>
 
-<form action="">
+<form action="http://localhost:3000/show_answer">
   <p>
     When you think you know the rule, describe it in words below and then submit your answer. <strong>Make sure you’re right; you won’t get a second chance.</strong>
   </p>
